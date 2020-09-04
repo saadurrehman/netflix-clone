@@ -1,24 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import request from "./utils/request";
+import "./App.css";
+import Row from "./component/Row";
+import Banner from "./component/Banner";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      {/* Navbar */}
+      <Banner />
+      <Row title="Netflix originals" fetchUrl={request.fetchNetflixOriginals} />
+      <Row title="Trending Now" thumbnail fetchUrl={request.fetchTrending} />
+      <Row title="Top Rated" thumbnail fetchUrl={request.fetchTopRated} />
+      <Row
+        title="Action Movies"
+        thumbnail
+        fetchUrl={request.fetchActionMovies}
+      />
+      <Row
+        title="Comedy Movies"
+        thumbnail
+        fetchUrl={request.fetchComedyMovies}
+      />
+      <Row
+        title="Romance Movies"
+        thumbnail
+        fetchUrl={request.fetchRomanceMovies}
+      />
+      <Row
+        title="Documentaries"
+        thumbnail
+        fetchUrl={request.fetchDocumentaries}
+      />
     </div>
   );
 }
